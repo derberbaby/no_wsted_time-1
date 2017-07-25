@@ -8,5 +8,5 @@ export class Create {
     public _Owners = [],
     public _Members = [],
     public _Invitees = []
-  )
+  ) {}
 }

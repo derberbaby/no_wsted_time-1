@@ -4,19 +4,20 @@
 		<label for="email">Email: <input
 		type="text"
 		name="email"
-		required 
+		required
 		[(ngModel)]="user_login.email"
 		#login_email="ngModel">
 		<p *ngIf="!login_email.valid && (login_email.dirty || login_email.touched)">Email is required</p>
 		</label>
-		<label for="password">Password: <input 
+		<label for="password">Password: <input
 		type="text"
 		name="password"
-		required 
+		required
 		[(ngModel)]="user_login.password"
 		#login_password="ngModel">
 		<p *ngIf="!login_password.valid && (login_password.dirty || login_password.touched)">Password is required</p>
 		</label>
 		<input type="submit" [disabled]="!logForm.form.valid" value="Login">
 	</form>
+	<p>Not yet registered? <a [routerLink]="['/main', 'register']">Register here</a></p>
 </div>
