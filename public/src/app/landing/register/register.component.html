@@ -2,40 +2,16 @@
 <div id="reg">
 <h3>Registration</h3>
 	<form (submit)="register()" #regForm="ngForm">
-		<label for="first_name">*First Name: 
+		<label for="name">*Name:
 		<input type="text"
-		name="first_name"
+		name="name"
 		required
-		minlength="2"
-		[(ngModel)]="user.first_name"
-		#first_name="ngModel"
+		[(ngModel)]="user.name"
+		#name="ngModel"
 		>
-		<p *ngIf="first_name.errors?.required && (first_name.touched || first_name.dirty)">Please enter your first name.</p>
-		<p *ngIf="first_name.errors?.minlength && (first_name.touched || first_name.dirty)">Must be at least 2 characters.</p>
+		<p *ngIf="name.errors?.required && (name.touched || name.dirty)">Please enter your name.</p>
 		</label>
-		<label for="last_name">*Last Name: 
-		<input type="text"
-		name="last_name"
-		required
-		minlength="2"
-		[(ngModel)]="user.last_name"
-		#last_name="ngModel"
-		>
-		<p *ngIf="last_name.errors?.required && (last_name.touched || last_name.dirty)">Please enter your last name.</p>
-		<p *ngIf="last_name.errors?.minlength && (last_name.touched || last_name.dirty)">Must be at least 2 characters.</p>
-		</label>
-		<label for="username">*Username: 
-		<input type="text"
-		name="username"
-		required
-		minlength="2"
-		[(ngModel)]="user.username"
-		#username="ngModel"
-		>
-		<p *ngIf="username.errors?.required && (username.touched || username.dirty)">Please enter your last name.</p>
-		<p *ngIf="username.errors?.minlength && (username.touched || username.dirty)">Must be at least 2 characters.</p>
-		</label>
-		<label for="email">*Email: 
+		<label for="email">*Email:
 		<input type="text"
 		name="email"
 		required
@@ -47,7 +23,7 @@
 		<p *ngIf="email.errors?.minlength && (email.touched || email.dirty)">Must be at least 4 characters.
 		</p>
 		</label>
-		<label for="password">*Password: 
+		<label for="password">*Password:
 		<input type="text"
 		name="password"
 		required
@@ -61,7 +37,7 @@
 		<p *ngIf="password.errors?.maxlength && (password.touched || psasword.dirty)">Cannot be more than 32 characters.</p>
 		<p *ngIf="password.errors?.pattern && (password.touched || password.dirty)">Must include 1 lowercase, 1 uppercase, and 1 number.</p>
 		</label>
-		<label for="password_confirm">*Password Confirmation: 
+		<label for="password_confirm">*Password Confirmation:
 		<input type="text"
 		name="password_confirm"
 		required
@@ -71,10 +47,10 @@
 		<p *ngIf="!password_confirm.valid && (password_confirm.dirty || password_confirm.touched)">Please confirm password.</p>
 		<p *ngIf="user.password != user.password_confirm && (password_confirm.dirty || password_confirm.touched)">Passwords do not match.</p>
 		</label>
-		<label for="birthday">Birthday: 
+		<label for="birthday">Birthday:
 		<input type="date"
 		name="birthday"
-		required 
+		required
 		[(ngModel)]="user.birthday"
 		#birthday="ngModel"
 		>
@@ -82,4 +58,5 @@
 		</label>
 		<input type="submit" [disabled]="!regForm.form.valid" value="Register">
 	</form>
+	<p>Already registered? <a [routerLink]="['/main', 'login']">LOGIN</a></p>
 </div>
