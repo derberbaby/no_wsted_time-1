@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Journal} from './../journal';
-import {JournalService } from './journal.service';
+import {JournalService } from './../journal.service';
 
 @Component({
   selector: 'app-journal',
