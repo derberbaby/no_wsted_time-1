@@ -12,11 +12,11 @@ import {
   TemplateRef
 } from '@angular/core';
 import {
-  CalendarEvent,
   WeekDay,
   MonthView,
   MonthViewDay
 } from 'calendar-utils';
+import { CalendarEvent } from 'angular-calendar';
 import { Subject } from 'rxjs/Subject';
 import { Subscription } from 'rxjs/Subscription';
 import * as isSameDay from 'date-fns/is_same_day';
@@ -45,12 +45,11 @@ export class CalendarComponent implements OnChanges, OnInit, OnDestroy {
 
    */
   @Input() viewDate: Date;
-
   /**
    * An array of events to display on view.
    * The schema is available here: https://github.com/mattlewis92/calendar-utils/blob/c51689985f59a271940e30bc4e2c4e1fee3fcb5c/src/calendarUtils.ts#L49-L63
    */
-  @Input() events: CalendarEvent[] = [];
+  @Input() events: CalendarEvent[];
 
   /**
    * An array of day indexes (0 = sunday, 1 = monday etc) that will be hidden on the view
