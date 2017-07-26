@@ -20,8 +20,7 @@ export class CreateComponent implements OnInit {
 
   create() {
     this._createService.serviceCreate(this.newThing)
-      .then( (savedThing) => {
-        this.newThing = savedThing;
+      .then( (success) => {
         this._router.navigate(['/dashboard'])
       })
       .catch( (err) => {
