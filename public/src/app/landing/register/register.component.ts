@@ -20,7 +20,7 @@ export class RegisterComponent implements OnInit {
   register() {
   	this._userService.serviceRegister(this.user)
   		.then( (success) => {
-  			this._router.navigate(['/main'])
+  			this._router.navigate(['/dashboard'])
   		})
   		.catch( (err) => {
   			this.errors = JSON.parse(err._body);

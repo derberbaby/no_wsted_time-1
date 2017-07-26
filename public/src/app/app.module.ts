@@ -1,7 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { UserService } from './user.service';
-import { JournalService } from './journal/journal.service'
+import { CreateService } from './create.service';
+import { JournalService } from './journal.service';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LandingComponent } from './landing/landing.component';
@@ -11,9 +12,7 @@ import { LoginComponent } from './landing/login/login.component';
 import { RegisterComponent } from './landing/register/register.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { JournalComponent } from './journal/journal.component';
-
-
-
+import { CreateComponent } from './create/create.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,7 +20,8 @@ import { JournalComponent } from './journal/journal.component';
     LoginComponent,
     RegisterComponent,
     DashboardComponent,
-    JournalComponent
+    JournalComponent,
+    CreateComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +30,8 @@ import { JournalComponent } from './journal/journal.component';
     FormsModule
 
   ],
-  providers: [UserService, JournalService],
+
+  providers: [UserService, CreateService, JournalService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
