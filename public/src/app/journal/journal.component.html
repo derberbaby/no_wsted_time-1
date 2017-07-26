@@ -1,0 +1,21 @@
+<p>
+  journal works!
+</p>
+
+<p>{{journal|json}}</p>
+
+<form (submit)="createJournal();" #journalForm = "ngForm">
+
+
+<select name="mood" [(ngModel)] = "journal.mood" #mood='ngModel'>
+	<option value="happy" selected>Happy</option>
+	<option value="amused">Amused</option>
+	<option value="sad">Sad</option>
+</select>
+
+
+<textarea name="entry" rows="20" cols="80" [(ngModel)] = "journal.entry" #entry='ngModel'></textarea>
+
+<input type="submit" value="Submit">
+
+</form>
