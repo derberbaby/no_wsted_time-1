@@ -1,0 +1,8 @@
+label {
+  display: block;
+}
+
+p {
+  display: inline;
+  color: red;
+}

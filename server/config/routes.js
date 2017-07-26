@@ -1,4 +1,5 @@
 var users = require('./../controllers/users.js');
+var create = require('./../controllers/create.js');
 
 module.exports = (app) => {
   app.post('/api/login', users.login);
@@ -9,4 +10,5 @@ module.exports = (app) => {
 
   app.get('/api/logout', users.logout);
 
+  app.post('/api/create', create.new_thing);
 }
