@@ -1,0 +1,23 @@
+<p>
+  journal works!
+</p>
+
+<div id="journal">
+	<p>{{journal | json }}</p>
+	<p>How are you feeling today?</p>
+		<select
+			type="select"
+			name="mood"
+			[(ngModel)]="journal.mood"
+			#mood="ngModel">
+			<option disabled>Select...</option>
+			<option value="happy">Happy</option>
+			<option value="sad">Sad</option>
+		</select>
+		<inline-editor
+		type="textarea"
+		name="entry"
+		[(ngModel)]="journal.entry"
+		(onSave)="saveEditable($event)"
+		#entry="ngModel"></inline-editor>
+</div>
