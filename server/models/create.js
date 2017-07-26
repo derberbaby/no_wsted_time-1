@@ -4,20 +4,20 @@ let Schema = mongoose.Schema;
 let CreateSchema = new mongoose.Schema({
   category: {
     type: String,
-    required: [true, "Select a category."],
+    required: [true, "Category is required"],
   },
   title: {
   	type: String,
-  	required: [true, "Please enter a title."],
+  	required: [true, "Title is required."],
   	trim: true
   },
   start_date: {
   	type: Date,
-  	required: [true, "Please enter a start date"]
+  	required: [true, "Start date is required."]
   },
   end_date: {
     type: Date,
-    required: [true, "Please enter an end date"]
+    required: [true, "End date is required."]
   },
   description: {
   	type: String

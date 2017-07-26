@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { UserService } from './user.service';
+import { CreateService } from './create.service';
+import { JournalService } from './journal.service';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LandingComponent } from './landing/landing.component';
@@ -9,6 +11,7 @@ import { HttpModule } from '@angular/http';
 import { LoginComponent } from './landing/login/login.component';
 import { RegisterComponent } from './landing/register/register.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { CreateComponent } from './create/create.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +19,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     LandingComponent,
     LoginComponent,
     RegisterComponent,
-    DashboardComponent
+    DashboardComponent,
+    CreateComponent
   ],
   imports: [
     BrowserModule,
@@ -24,7 +28,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     HttpModule,
     FormsModule
   ],
-  providers: [UserService],
+  providers: [UserService, CreateService, JournalService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
