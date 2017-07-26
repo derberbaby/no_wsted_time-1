@@ -4,19 +4,20 @@
 
 <div id="journal">
 	<p>{{journal | json }}</p>
-	<form (submit)="createEntry()" #journalForm='ngForm'>
-		<select 
+	<p>How are you feeling today?</p>
+		<select
+			type="select"
 			name="mood"
 			[(ngModel)]="journal.mood"
 			#mood="ngModel">
-			<option value="happy" selected>Happy</option>
+			<option disabled>Select...</option>
+			<option value="happy">Happy</option>
 			<option value="sad">Sad</option>
 		</select>
-		<textarea
-		type="text"
+		<inline-editor
+		type="textarea"
 		name="entry"
 		[(ngModel)]="journal.entry"
-		#entry="ngModel"></textarea>
-		<input type="submit" value="Submit">
-	</form>
+		(onSave)="saveEditable($event)"
+		#entry="ngModel"></inline-editor>
 </div>

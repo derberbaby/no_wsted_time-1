@@ -13,6 +13,10 @@ import { RegisterComponent } from './landing/register/register.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { CreateComponent } from './create/create.component';
 import { JournalComponent } from './journal/journal.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CalendarModule } from 'angular-calendar';
+import { CalendarComponent } from './calendar/calendar.component';
+import {InlineEditorModule} from '@qontu/ngx-inline-editor';
 
 @NgModule({
   declarations: [
@@ -22,13 +26,17 @@ import { JournalComponent } from './journal/journal.component';
     RegisterComponent,
     DashboardComponent,
     CreateComponent,
-    JournalComponent
+    JournalComponent,
+    CalendarComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule,
+    CalendarModule.forRoot(),
+    InlineEditorModule
   ],
   providers: [UserService, CreateService, JournalService],
   bootstrap: [AppComponent]
