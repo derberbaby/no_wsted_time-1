@@ -1,5 +1,6 @@
 import {
   Component,
+  ChangeDetectionStrategy,
   OnChanges,
   Input,
   Output,
@@ -12,13 +13,14 @@ import {
   TemplateRef
 } from '@angular/core';
 import {
-  CalendarEvent,
   WeekDay,
   MonthView,
   MonthViewDay
 } from 'calendar-utils';
+import { CalendarEvent } from 'angular-calendar';
 import { Subject } from 'rxjs/Subject';
 import { Subscription } from 'rxjs/Subscription';
+import { DateObserveService } from './../date-observe.service';
 import * as isSameDay from 'date-fns/is_same_day';
 import * as setDate from 'date-fns/set_date';
 import * as setMonth from 'date-fns/set_month';
@@ -38,19 +40,25 @@ import { CalendarUtils } from './../../../node_modules/angular-calendar/dist//es
 })
 export class CalendarComponent implements OnChanges, OnInit, OnDestroy {
 
+  clickedDate: any;
 
+  onClick(day){
+    console.log("CLICKING");
+    this.clickedDate = day;
+  }
+  
  /**
    * The current view date
 
 
    */
-  @Input() viewDate: Date;
-
+  @Input() viewDate: Date = new Date();
   /**
    * An array of events to display on view.
    * The schema is available here: https://github.com/mattlewis92/calendar-utils/blob/c51689985f59a271940e30bc4e2c4e1fee3fcb5c/src/calendarUtils.ts#L49-L63
    */
-  @Input() events: CalendarEvent[] = [];
+
+  @Input() events: CalendarEvent[];
 
   /**
    * An array of day indexes (0 = sunday, 1 = monday etc) that will be hidden on the view
@@ -90,7 +98,7 @@ export class CalendarComponent implements OnChanges, OnInit, OnDestroy {
   /**
    * The start number of the week
    */
-  @Input() weekStartsOn: number;
+  @Input() weekStartsOn: number = 0;
 
   /**
    * A custom template to use to replace the header
@@ -177,15 +185,18 @@ export class CalendarComponent implements OnChanges, OnInit, OnDestroy {
   constructor(
     private cdr: ChangeDetectorRef,
     private utils: CalendarUtils,
+    private _dateObserveService: DateObserveService,
     @Inject(LOCALE_ID) locale: string
   ) {
     this.locale = locale;
+    this._dateObserveService.newDate(this.clickedDate)
   }
 
   /**
    * @hidden
    */
   ngOnInit(): void {
+    this.refreshAll();
     if (this.refresh) {
       this.refreshSubscription = this.refresh.subscribe(() => {
         this.refreshAll();
@@ -263,12 +274,15 @@ export class CalendarComponent implements OnChanges, OnInit, OnDestroy {
   }
 
   private refreshHeader(): void {
+    console.log("View date is", this.viewDate);
+    console.log("WeekStart is", this.weekStartsOn)
     this.columnHeaders = this.utils.getWeekViewHeader({
       viewDate: this.viewDate,
       weekStartsOn: this.weekStartsOn,
       excluded: this.excludeDays,
       weekendDays: this.weekendDays
     });
+    console.log(this.columnHeaders)
     this.emitBeforeViewRender();
   }
 
@@ -280,6 +294,9 @@ export class CalendarComponent implements OnChanges, OnInit, OnDestroy {
       excluded: this.excludeDays,
       weekendDays: this.weekendDays
     });
+    console.log("**********************************")
+    console.log(this.view);
+    console.log("**********************************")
     this.emitBeforeViewRender();
   }
 

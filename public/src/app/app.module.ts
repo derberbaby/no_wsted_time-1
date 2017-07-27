@@ -18,6 +18,10 @@ import { CalendarModule } from 'angular-calendar';
 import { CalendarComponent } from './calendar/calendar.component';
 import {InlineEditorModule} from '@qontu/ngx-inline-editor';
 
+import { CommonModule } from '@angular/common';
+
+import { DateObserveService } from './date-observe.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,6 +34,7 @@ import {InlineEditorModule} from '@qontu/ngx-inline-editor';
     CalendarComponent
   ],
   imports: [
+    CommonModule,
     BrowserModule,
     AppRoutingModule,
     HttpModule,
@@ -38,7 +43,8 @@ import {InlineEditorModule} from '@qontu/ngx-inline-editor';
     CalendarModule.forRoot(),
     InlineEditorModule
   ],
-  providers: [UserService, CreateService, JournalService],
-  bootstrap: [AppComponent]
+  providers: [UserService, CreateService, JournalService, DateObserveService],
+  bootstrap: [AppComponent],
+  exports: [ CalendarComponent ]
 })
 export class AppModule { }
