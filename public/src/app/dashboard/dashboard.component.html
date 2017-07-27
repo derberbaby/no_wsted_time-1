@@ -1,6 +1,5 @@
 <h2>Welcome, {{ first_name }}</h2>
 <h3>Date: {{ newDate | date: 'mediumDate'}}</h3>
-<button [routerLink]="['/create']">+</button>
-
+<router-outlet></router-outlet>
 <app-journal [newDate]="newDate"></app-journal>
 <app-calendar (changedDate)="changedDate($event)"></app-calendar>

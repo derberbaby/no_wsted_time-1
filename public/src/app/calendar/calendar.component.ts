@@ -237,7 +237,7 @@ export class CalendarComponent implements OnChanges, OnInit, OnDestroy {
 
   /**
    * @hidden
-   */
+   */  
   ngOnDestroy(): void {
     if (this.refreshSubscription) {
       this.refreshSubscription.unsubscribe();
