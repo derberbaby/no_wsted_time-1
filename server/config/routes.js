@@ -14,4 +14,8 @@ module.exports = (app) => {
   app.post('/api/creates', creates.new_thing);
 
   app.post('/api/add_journal_entry', journals.newEntry);
+
+  app.post('/api/find_journal_entry', journals.findEntry);
+
+  app.post('/api/edit_journal_entry', journals.editEntry);
 }
