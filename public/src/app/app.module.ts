@@ -21,8 +21,8 @@ import { EditComponent } from './edit/edit.component';
 import { EventsComponent } from './events/events.component';
 
 import { CommonModule } from '@angular/common';
+import { DateObservableService } from './date-observable.service';
 
-import { DateObserveService } from './date-observe.service';
 
 @NgModule({
   declarations: [
@@ -47,7 +47,7 @@ import { DateObserveService } from './date-observe.service';
     CalendarModule.forRoot(),
     InlineEditorModule
   ],
-  providers: [UserService, CreateService, JournalService, DateObserveService],
+  providers: [UserService, CreateService, JournalService, DateObservableService],
   bootstrap: [AppComponent],
   exports: [ CalendarComponent ]
 })

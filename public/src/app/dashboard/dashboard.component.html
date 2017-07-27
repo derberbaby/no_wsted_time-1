@@ -2,8 +2,8 @@
   dashboard works!
 </p>
 <button [routerLink]="['/create']">+</button>
-<p>{{ newDate | date: "medium"}}</p>
-<button (click)="getCurrentObservableDate()">testestestests</button>
+
+<p>{{ newDate | json }}</p>
 
 <app-journal></app-journal>
 <app-calendar></app-calendar>

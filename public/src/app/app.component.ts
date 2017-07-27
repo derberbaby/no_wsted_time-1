@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { DateObserveService } from './date-observe.service';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -7,7 +7,7 @@ import { DateObserveService } from './date-observe.service';
 })
 export class AppComponent implements OnInit{
 
-  constructor(private _dateObserveService: DateObserveService){
+  constructor(){
   }
 
   ngOnInit(){
