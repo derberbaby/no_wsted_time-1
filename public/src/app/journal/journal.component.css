@@ -1,6 +1,6 @@
 #journal {
-	width: 620px;
-	height: 400px;
+	width: 800px;
+	height: 300px;
 	background: #99e6ff;
 
 }
@@ -17,3 +17,15 @@ button.btn.btn-xs.btn-danger.c-inline-editor{
 
 }
 
+h2 {
+	text-align: center;
+}
+
+section {
+	width:700px;
+	height: 200px;
+	background: white;
+	margin: 0 0 0 20px;
+
+
+}

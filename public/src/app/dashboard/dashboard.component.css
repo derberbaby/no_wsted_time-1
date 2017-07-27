@@ -1,0 +1,49 @@
+main {
+	display: block;
+
+
+}
+
+section {
+	display: inline-block;
+	vertical-align: top;
+	width: 100%;
+	
+	background: white;
+
+}
+
+
+article {
+	display: inline-block;
+	vertical-align: top;
+
+	background: lightgrey;
+	width: 800px;
+}
+
+p {
+	font-size: 30px;
+	text-align: center;
+
+}
+
+#middle{
+	margin: 0 0 0 20px;
+}
+
+#todo {
+width: 375px;
+height: 300px;
+background: yellow;
+display: inline-block;
+vertical-align: top;
+}
+
+#event {
+width: 375px;
+height: 300px;
+background: orange;
+display: inline-block;
+vertical-align: top;
+}

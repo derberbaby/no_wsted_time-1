@@ -1,9 +1,36 @@
-<p>
-  dashboard works!
-</p>
-<button [routerLink]="['/create']">+</button>
+
+<main>
+<section>
+<h1>Welcome!</h1>
+
+
+<app-calendar></app-calendar>
+<article>
+
+<!--
 <p>{{ newDate | date: "medium"}}</p>
+-->
+<p>{{ newDate | date: 'MM/dd/yyyy'}}</p>
+
+<!--
 <button (click)="getCurrentObservableDate()">testestestests</button>
+-->
+
+<div id="middle">
+<div id="todo">
+
+<h2>To Do List</h2>
+
+</div>
+<div id="event">
+
+<h2>Events 
+	<button [routerLink]="['/create']">+</button>
+</h2>
+</div>
+</div>
 
 <app-journal></app-journal>
-<app-calendar></app-calendar>
+</article>
+</section>
+</main>
