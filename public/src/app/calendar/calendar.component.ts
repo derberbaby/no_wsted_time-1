@@ -42,11 +42,12 @@ import { Subscription } from 'rxjs/Subscription';
 export class CalendarComponent implements OnChanges, OnInit, OnDestroy {
 
   clickedDate: Date;
+  @Output() changedDate = new EventEmitter();
 
   onClick(day){
-    console.log("CLICKING");
     this.clickedDate = day;
     this._dateObservableService.updateDate(this.clickedDate);
+    this.changedDate.emit(this.clickedDate);
   }
   
  /**
