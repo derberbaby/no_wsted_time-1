@@ -1,40 +1,6 @@
-main {
-	background: url("./../../../assets/office.jpg");
-
-
-}
-
 
 #login {
-	background: #99e6ff;
 	width: 300px;
-	height: 350px;
-	padding: 10px 25px 25px 25px;
-	border-radius: 25px ;
-	box-shadow: 5px 5px 3px #000;
 	margin: auto;
 	margin-top: 50px;
-
-}
-
-
-label {
-	display: block;
-	width: 250px;
-	margin: 10px 0 10px 0;
-
-
-}
-
-.space {
-	
-	padding: 20px 0 0 0;
-
-
-}
-
-.sub {
-
-	border-radius: 5px;
-
 }

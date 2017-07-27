@@ -48,12 +48,7 @@ import { DateObservableService } from './date-observable.service';
     CalendarModule.forRoot(),
     InlineEditorModule
   ],
-<<<<<<< HEAD
-
-  providers: [UserService, CreateService, JournalService, DateObserveService],
-=======
   providers: [UserService, CreateService, JournalService, DateObservableService],
->>>>>>> Added functioning observable
   bootstrap: [AppComponent],
   exports: [ CalendarComponent ]
 
