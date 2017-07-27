@@ -18,6 +18,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CalendarModule } from 'angular-calendar';
 import { CalendarComponent } from './calendar/calendar.component';
 import {InlineEditorModule} from '@qontu/ngx-inline-editor';
+import { EditComponent } from './edit/edit.component';
+import { EventsComponent } from './events/events.component';
 
 import { CommonModule } from '@angular/common';
 
@@ -32,7 +34,9 @@ import { DateObserveService } from './date-observe.service';
     DashboardComponent,
     CreateComponent,
     JournalComponent,
-    CalendarComponent
+    CalendarComponent,
+    EditComponent,
+    EventsComponent
   ],
   imports: [
     CommonModule,
