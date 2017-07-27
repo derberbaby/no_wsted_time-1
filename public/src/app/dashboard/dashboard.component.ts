@@ -1,6 +1,10 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
+import { DateObservableService } from './../date-observable.service';
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { Subscription } from 'rxjs/Subscription';
-import { DateObserveService } from './../date-observe.service';
+import { User } from './../user';
+import { UserService } from './../user.service';
+
 
 @Component({
   selector: 'app-dashboard',
@@ -8,31 +12,24 @@ import { DateObserveService } from './../date-observe.service';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-	newDate: Date;
+  user: User;
+  first_name;
+  today = new Date;
+	newDate;
 	subscription: Subscription;
 
-  constructor(private _dateObserveService: DateObserveService) {
-  	this.subscription = _dateObserveService.dateObservable.subscribe(
-  		(spoongeBob) =>{ 
-  			this.newDate = spoongeBob; 
-  			console.log("I've subscribed", this.newDate);
-  		},
-  		(err) =>{console.log(err);},
-  		() => {}
-  		)
+  constructor(private _dateObservableService: DateObservableService, private _userService: UserService) {
    }
 
   ngOnInit() {
-  	this._dateObserveService.newDate(new Date());
-  	// this.getCurrentObservableDate();
+    this.newDate = this.today;
+    this._userService.serviceCheckSessionUser().then( (user) => {
+      this.user = user;
+      this.first_name = this.user.name.split(' ')[0]}).catch();
   }
 
-  getCurrentObservableDate(){
-  	this._dateObserveService.newDate(new Date());
-  	this.newDate = this._dateObserveService.dateObservable.getValue();
+  changedDate(clicked_date) {
+    this.newDate = clicked_date.date;
   }
 
-  ngOnDestroy(){
-  	this.subscription.unsubscribe();
-  }
 }

@@ -6,6 +6,39 @@ let User = mongoose.model('User');
 // exporting and importing this logic into routes
 module.exports = {
 
+  findEntry: (req, res) => {
+    let date = req.body.journal_date.slice(0,10)
+    Journal.findOne({ '$where': 'this.date.toJSON().slice(0, 10) == "' + date  + '"', _User: req.session.user_id}, (err, journal) => {
+        if (err) {
+            console.log("ERR", err);
+            return res.status(400).send(err);
+        } else {
+            if (journal == null) {
+                console.log("JOURNAL NULL");
+                return res.sendStatus(400);
+            } else {
+                req.session.journal_id = journal._id;
+                console.log("FOUND JOURNAL ENTRY");
+                return res.json(journal);
+            }
+        }
+    })
+  },
+
+  editEntry: (req, res) => {
+    console.log("IN EDIT");
+    Journal.findOneAndUpdate({_id: req.session.journal_id}, req.body, (err, journal) => {
+        console.log("RAN QUERY");
+        if (err) {
+            console.log("ERROR");
+            return res.sendStatus(400);
+        } else {
+            journal = req.body;
+            console.log("PRE SAVE JOURNAL", journal);
+        }
+    })
+  },
+
   newEntry: (req, res) => {
     console.log("YAYYY");
     if (req.session.user_id) {

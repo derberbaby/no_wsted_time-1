@@ -1,36 +1,6 @@
+<h2>Welcome, {{ first_name }}</h2>
+<h3>Date: {{ newDate | date: 'mediumDate'}}</h3>
+<button [routerLink]="['/create']">+</button>
 
-<main>
-<section>
-<h1>Welcome!</h1>
-
-
-<app-calendar></app-calendar>
-<article>
-
-<!--
-<p>{{ newDate | date: "medium"}}</p>
--->
-<p>{{ newDate | date: 'MM/dd/yyyy'}}</p>
-
-<!--
-<button (click)="getCurrentObservableDate()">testestestests</button>
--->
-
-<div id="middle">
-<div id="todo">
-
-<h2>To Do List</h2>
-
-</div>
-<div id="event">
-
-<h2>Events 
-	<button [routerLink]="['/create']">+</button>
-</h2>
-</div>
-</div>
-
-<app-journal></app-journal>
-</article>
-</section>
-</main>
+<app-journal [newDate]="newDate"></app-journal>
+<app-calendar (changedDate)="changedDate($event)"></app-calendar>

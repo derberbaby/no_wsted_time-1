@@ -19,8 +19,6 @@ import {
 } from 'calendar-utils';
 import { CalendarEvent } from 'angular-calendar';
 import { Subject } from 'rxjs/Subject';
-import { Subscription } from 'rxjs/Subscription';
-import { DateObserveService } from './../date-observe.service';
 import * as isSameDay from 'date-fns/is_same_day';
 import * as setDate from 'date-fns/set_date';
 import * as setMonth from 'date-fns/set_month';
@@ -32,6 +30,9 @@ import * as differenceInSeconds from 'date-fns/difference_in_seconds';
 import * as addSeconds from 'date-fns/add_seconds';
 import { CalendarEventTimesChangedEvent } from './../../../node_modules/angular-calendar/dist/esm/src/interfaces/calendarEventTimesChangedEvent.interface';
 import { CalendarUtils } from './../../../node_modules/angular-calendar/dist//esm/src/providers/calendarUtils.provider';
+import { DateObservableService } from './../date-observable.service';
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+import { Subscription } from 'rxjs/Subscription';
 
 @Component({
   selector: 'app-calendar',
@@ -40,11 +41,13 @@ import { CalendarUtils } from './../../../node_modules/angular-calendar/dist//es
 })
 export class CalendarComponent implements OnChanges, OnInit, OnDestroy {
 
-  clickedDate: any;
+  clickedDate: Date;
+  @Output() changedDate = new EventEmitter();
 
   onClick(day){
-    console.log("CLICKING");
     this.clickedDate = day;
+    this._dateObservableService.updateDate(this.clickedDate);
+    this.changedDate.emit(this.clickedDate);
   }
   
  /**
@@ -185,11 +188,11 @@ export class CalendarComponent implements OnChanges, OnInit, OnDestroy {
   constructor(
     private cdr: ChangeDetectorRef,
     private utils: CalendarUtils,
-    private _dateObserveService: DateObserveService,
+    private _dateObservableService: DateObservableService,
     @Inject(LOCALE_ID) locale: string
   ) {
     this.locale = locale;
-    this._dateObserveService.newDate(this.clickedDate)
+    this._dateObservableService.observedDate.subscribe( (curr_date) => { this.clickedDate = curr_date})
   }
 
   /**

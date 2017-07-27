@@ -1,31 +1,19 @@
-<!--
-<p>
-  journal works!
-</p>
--->
 <div id="journal">
-<h2> Journal </h2>
+	<h2> Journal </h2>
+	<p>THE DATE BEING CLICKED ON IN JOURNAL IS {{newDate | json}}</p>
+		<form (submit)="serviceCreateEntry()" #journalForm="ngForm" *ngIf="create">
+			<textarea type="textarea"
+			rows="4"
+			columns="30"
+			name="entry"
+			placeholder="Tell me about your day..."
+			[(ngModel)]="journal.entry"
+			#entry="ngModel"></textarea>
+			<input type="submit" value="Submit">
+		</form>
 
-<!--
-
-	<p>{{journal | json }}</p>
--->
-
-	<p>How are you feeling today?
-		<select
-			type="select"
-			name="mood"
-			[(ngModel)]="journal.mood"
-			#mood="ngModel">
-			<option disabled>Select...</option>
-			<option value="happy">Happy</option>
-			<option value="sad">Sad</option>
-		</select>
-		</p>
-
-
-	<section>
-		<inline-editor
+		<!--
+		<inline-editor *ngIf="!create"
 		type="textarea"
 		name="entry"
 		cols="80"
@@ -35,5 +23,7 @@
 		(onSave)="saveEditable($event)"
 		#entry="ngModel"> </inline-editor>
 	</section>
+	-->
 
+	
 </div>
