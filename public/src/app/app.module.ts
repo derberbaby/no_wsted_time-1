@@ -22,6 +22,7 @@ import { EventsComponent } from './events/events.component';
 
 import { CommonModule } from '@angular/common';
 import { DateObservableService } from './date-observable.service';
+import { EventDetailComponent } from './event-detail/event-detail.component';
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import { DateObservableService } from './date-observable.service';
     JournalComponent,
     CalendarComponent,
     EditComponent,
-    EventsComponent
+    EventsComponent,
+    EventDetailComponent,
   ],
   imports: [
     CommonModule,
