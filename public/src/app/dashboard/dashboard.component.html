@@ -2,5 +2,7 @@
 <h3>Date: {{ newDate | date: 'mediumDate'}}</h3>
 <button [routerLink]="['/create']">+</button>
 
+<p>{{ newDate | json }}</p>
+
 <app-journal [newDate]="newDate"></app-journal>
 <app-calendar (changedDate)="changedDate($event)"></app-calendar>

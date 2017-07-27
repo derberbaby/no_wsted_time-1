@@ -8,12 +8,12 @@
 		<!-- // set page width to size of device -->
 		<title></title>
 	</head>
-	<body><div id="wrapper">
-	<div id="errors">
-		<p *ngFor="let error of errors">{{ error }}</p>
-	</div>
-	<router-outlet></router-outlet>
-</div>
-
+	<body>
+		<div id="wrapper">
+			<div id="errors">
+				<p *ngFor="let error of errors">{{ error }}</p>
+			</div>
+			<router-outlet></router-outlet>
+		</div>
 	</body>
 </html>
