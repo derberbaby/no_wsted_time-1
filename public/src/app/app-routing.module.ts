@@ -6,7 +6,12 @@ import { RegisterComponent } from './landing/register/register.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { CreateComponent } from './create/create.component';
 import { EventsComponent } from './events/events.component';
+
 import { EventDetailComponent } from './event-detail/event-detail.component';
+
+
+
+
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: '/main/login' },
@@ -15,6 +20,7 @@ const routes: Routes = [
     { path: 'register', component: RegisterComponent }
   ]},
   { path: 'dashboard', component: DashboardComponent, children: [
+
     { path: '', pathMatch: 'full', component: EventsComponent },
     { path: 'create', component: CreateComponent },
     { path: 'events', component: EventsComponent }] },
