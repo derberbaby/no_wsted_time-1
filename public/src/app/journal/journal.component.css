@@ -1,0 +1,19 @@
+#journal {
+	width: 620px;
+	height: 400px;
+	background: #99e6ff;
+
+}
+
+button#inline-editor-button-save.btn.btn-xs.btn-primary.c-inline-editor{
+
+	
+	padding: 10px 20px;
+
+
+}
+button.btn.btn-xs.btn-danger.c-inline-editor{
+	padding: 10px 20px;
+
+}
+

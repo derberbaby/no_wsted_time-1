@@ -1,23 +1,53 @@
+<main>
 <div id="login">
-<h3>Login</h3>
+<h2>Login</h2>
 	<form (submit)="login()" #logForm="ngForm">
-		<label for="email">Email: <input
+	
+		<label for="email">Email: 
+
+ <div class="input-group">
+		<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+
+		<input
 		type="text"
+		class="form-control"
 		name="email"
+		placeholder="Enter Email"
 		required
 		[(ngModel)]="user_login.email"
 		#login_email="ngModel">
+	
+</div>
+
+
+
 		<p *ngIf="!login_email.valid && (login_email.dirty || login_email.touched)">Email is required</p>
 		</label>
-		<label for="password">Password: <input
-		type="text"
+		<label for="password">Password: 
+
+
+ <div class="input-group">
+
+	 <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+
+		<input
+		type="password"
+		class="form-control"
 		name="password"
+		placeholder="Enter Password"
 		required
 		[(ngModel)]="user_login.password"
 		#login_password="ngModel">
+
+</div>
+
+
+
 		<p *ngIf="!login_password.valid && (login_password.dirty || login_password.touched)">Password is required</p>
 		</label>
-		<input type="submit" [disabled]="!logForm.form.valid" value="Login">
+		<input class="sub" type="submit" [disabled]="!logForm.form.valid" value="Login">
 	</form>
-	<p>Not yet registered? <a [routerLink]="['/main', 'register']">Register here</a></p>
+	<p class="space">Not yet registered? <a [routerLink]="['/main', 'register']">Register here</a></p>
 </div>
+
+</main>
