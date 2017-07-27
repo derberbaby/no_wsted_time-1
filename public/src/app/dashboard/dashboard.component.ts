@@ -1,6 +1,8 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
+import { DateObservableService } from './../date-observable.service';
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { Subscription } from 'rxjs/Subscription';
-import { DateObserveService } from './../date-observe.service';
+
 
 @Component({
   selector: 'app-dashboard',
@@ -11,28 +13,13 @@ export class DashboardComponent implements OnInit {
 	newDate: Date;
 	subscription: Subscription;
 
-  constructor(private _dateObserveService: DateObserveService) {
-  	this.subscription = _dateObserveService.dateObservable.subscribe(
-  		(spoongeBob) =>{ 
-  			this.newDate = spoongeBob; 
-  			console.log("I've subscribed", this.newDate);
-  		},
-  		(err) =>{console.log(err);},
-  		() => {}
-  		)
+  constructor(private _dateObservableService: DateObservableService) {
    }
 
   ngOnInit() {
-  	this._dateObserveService.newDate(new Date());
-  	// this.getCurrentObservableDate();
+    this.subscription = this._dateObservableService.observedDate.subscribe( (date) => { this.newDate = date})
   }
 
-  getCurrentObservableDate(){
-  	this._dateObserveService.newDate(new Date());
-  	this.newDate = this._dateObserveService.dateObservable.getValue();
-  }
 
-  ngOnDestroy(){
-  	this.subscription.unsubscribe();
-  }
+
 }
