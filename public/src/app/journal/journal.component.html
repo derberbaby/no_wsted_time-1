@@ -1,5 +1,4 @@
 <div id="journal">
-	<p>THE DATE BEING CLICKED ON IN JOURNAL IS {{newDate | json}}</p>
 		<form (submit)="serviceCreateEntry()" #journalForm="ngForm" *ngIf="create">
 			<textarea type="textarea"
 			rows="4"
