@@ -1,7 +1,14 @@
 <h2>Welcome, {{ first_name }}</h2>
 <h3>Date: {{ newDate | date: 'mediumDate'}}</h3>
+<div *ngIf="pending_invites">
+	<div class="invitation_info" *ngFor="let invitation of pending_invites; index as idx">
+		<p>You are invited to {{invitation.title}} on {{invitation.start_date | date:'mediumDate'}}<button (click)="onAccept(idx)">Accept</button><button (click)="onReject(idx)">Reject</button></p>
+	</div>
+</div>
 <router-outlet></router-outlet>
 <app-weather></app-weather>
 <app-task></app-task>
 <app-journal [newDate]="newDate"></app-journal>
+<div>
 <app-calendar (changedDate)="changedDate($event)"></app-calendar>
+</div>

@@ -18,7 +18,8 @@ export class EventsComponent implements OnInit {
 
   constructor(
   	private _dateObservableService: DateObservableService,
-  	private _createService: CreateService
+  	private _createService: CreateService,
+    private _router: Router
   	) { }
 
   ngOnInit() {

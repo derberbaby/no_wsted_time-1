@@ -42,4 +42,22 @@ export class UserService {
       .map( response => response.json())
       .toPromise()
   }
+
+  serviceInviteFriend(event_id, friend_email) {
+    return this._http.post('/api/invite/' + event_id, {email: friend_email})
+    .map( response => response.json())
+    .toPromise()
+  }
+
+  serviceUserAccept(pending_index) {
+    return this._http.post('/api/acceptInvite', {index: pending_index})
+    .map( response => response.json())
+    .toPromise()
+  }
+
+  serviceUserReject(pending_index) {
+    return this._http.post('/api/rejectInvite', {index: pending_index})
+    .map( response => response.json())
+    .toPromise()
+  }
 }
