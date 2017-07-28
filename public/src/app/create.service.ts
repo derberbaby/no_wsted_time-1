@@ -26,10 +26,36 @@ export class CreateService {
       .toPromise()
   }
 
-  serviceEditEvent(event) {
+  serviceEditTitle(eventID, editedTitle) {
     console.log("SERVICE", event);
-    return this._http.post('/api/edit/', event)
+    return this._http.post('/api/edit/title/' + eventID, { title: editedTitle} )
     .map( (response) => response.json())
     .toPromise()
   }
+
+  serviceEditCategory(eventID, editedCategory) {
+  console.log("SERVICE", event);
+    return this._http.post('/api/edit/category/' + eventID, { category: editedCategory} )
+    .map( (response) => response.json())
+    .toPromise()
+  }
+
+  serviceEditDescription(eventID, editedDescription){
+    return this._http.post('/api/edit/description/' + eventID, { description: editedDescription } )
+    .map ( res => res.json())
+    .toPromise()
+  }
+
+  serviceEditStart(eventID, editedStart){
+    return this._http.post('/api/edit/start/' + eventID, { start_date: editedStart } )
+    .map ( res => res.json())
+    .toPromise()
+  }
+
+  serviceEditEnd(eventID, editedEnd){
+    return this._http.post('/api/edit/end/' + eventID, { end_date: editedEnd } )
+    .map ( res => res.json())
+    .toPromise()
+  }
+
 }
