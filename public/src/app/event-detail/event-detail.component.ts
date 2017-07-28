@@ -14,6 +14,7 @@ export class EventDetailComponent implements OnInit {
 	id;
 	private sub: any;
 	event: Create;
+  friend;
 
   constructor(
   	private _userService: UserService,
@@ -37,5 +38,18 @@ export class EventDetailComponent implements OnInit {
   	.catch( err => {
   		console.log(err);
   	})
+  }
+
+  invite() {
+    console.log("component", this.id);
+    this._userService.serviceInviteFriend(this.id.id, this.friend)
+    .then().catch();
+  }
+
+  saveEditable(value) {
+    this._createService.serviceEditEvent(this.event)
+    .then( data => {
+      this.event = data;
+    }).catch();
   }
 }

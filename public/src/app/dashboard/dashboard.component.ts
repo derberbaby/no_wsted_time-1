@@ -17,19 +17,33 @@ export class DashboardComponent implements OnInit {
   today = new Date;
 	newDate;
 	subscription: Subscription;
+  pending_invites;
 
   constructor(private _dateObservableService: DateObservableService, private _userService: UserService) {
    }
 
   ngOnInit() {
     this.newDate = this.today;
-    this._userService.serviceCheckSessionUser().then( (user) => {
-      this.user = user;
-      this.first_name = this.user.name.split(' ')[0]}).catch();
+    this.checkSession();
   }
 
   changedDate(clicked_date) {
     this.newDate = clicked_date.date;
+  }
+
+  checkSession() {
+      this._userService.serviceCheckSessionUser().then( (user) => {
+      this.user = user;
+      this.pending_invites = this.user.pending;
+      this.first_name = this.user.name.split(' ')[0]}).catch();
+  }
+
+  onAccept(pending_index) {
+    this._userService.serviceUserAccept(pending_index).then( data => {this.checkSession()}).catch();
+  }
+
+  onReject(pending_index) {
+    this._userService.serviceUserReject(pending_index).then( data => {this.checkSession()}).catch();
   }
 
 }

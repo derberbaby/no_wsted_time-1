@@ -23,7 +23,15 @@ module.exports = (app) => {
   
   app.post('/api/tasks/addTasks', users.addTasks);
 
+  app.post('/api/invite/:event_id', users.inviteFriend);
+
   app.post('/api/getEvents', creates.eventList);
 
   app.get('/api/details/:eventID', creates.eventDetails);
+
+  app.post('/api/edit', creates.editEvent);
+
+  app.post('/api/acceptInvite', users.acceptInvite);
+
+  app.post('/api/rejectInvite', users.rejectInvite);
 }
