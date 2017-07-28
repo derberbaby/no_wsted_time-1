@@ -23,6 +23,10 @@ import { EventsComponent } from './events/events.component';
 
 import { CommonModule } from '@angular/common';
 import { DateObservableService } from './date-observable.service';
+import { EventDetailComponent } from './event-detail/event-detail.component';
+import { WeatherComponent } from './weather/weather.component';
+import { TaskComponent } from './task/task.component';
+import { WeatherService } from './weather.service';
 
 
 @NgModule({
@@ -36,7 +40,10 @@ import { DateObservableService } from './date-observable.service';
     JournalComponent,
     CalendarComponent,
     EditComponent,
-    EventsComponent
+    EventsComponent,
+    EventDetailComponent,
+    WeatherComponent,
+    TaskComponent
   ],
   imports: [
     CommonModule,
@@ -48,7 +55,7 @@ import { DateObservableService } from './date-observable.service';
     CalendarModule.forRoot(),
     InlineEditorModule
   ],
-  providers: [UserService, CreateService, JournalService, DateObservableService],
+  providers: [UserService, CreateService, JournalService, DateObservableService, WeatherService],
   bootstrap: [AppComponent],
   exports: [ CalendarComponent ]
 

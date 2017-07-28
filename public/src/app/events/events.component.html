@@ -1,3 +1,7 @@
-<p>
-  events works!
-</p>
+<h2>Your list of events</h2>
+<button [routerLink] = "['/dashboard', 'create']">+</button>
+<ul>
+	<li *ngFor ='let event of eventList'>EVENT TITLE: {{event.title}}, EVENT TYPE: {{event.category}}
+	<button [routerLink]="['/details', event._id]">View Details</button></li>
+</ul>
+

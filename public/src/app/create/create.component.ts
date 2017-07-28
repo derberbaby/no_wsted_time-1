@@ -23,7 +23,7 @@ export class CreateComponent implements OnInit {
   create() {
     this._createService.serviceCreate(this.newThing)
       .then( (success) => {
-        this._router.navigate(['/dashboard'])
+        this._router.navigate(['/dashboard', 'events'])
       })
       .catch( (err) => {
         this.errors = JSON.parse(err._body);
