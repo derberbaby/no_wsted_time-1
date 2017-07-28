@@ -9,30 +9,34 @@
               type="text"
               name="title"
               [(ngModel)]="event.title"
-
+              (onSave)="editTitle($event)"
               #title="ngModel"></inline-editor></p>
       <p> <span>Category:</span> <inline-editor
               type="text"
               name="category"
               [(ngModel)]="event.category"
+              (onSave)="editCategory($event)"
               #category="ngModel"></inline-editor></p>
       <p> <span>Description:</span> <inline-editor
               type="textarea"
               name="description"
               [(ngModel)]="event.description"
-              #description="ngModel"></inline-editor> </p>
+              (onSave)="editDescription($event)"
+              #description="ngModel"></inline-editor></p>
       <p> <span>Start Date:</span> <inline-editor
               type="date"
               name="start_date"
-              [ngModel]="event.start_date | date:'mediumDate'"
+              [ngModel]="event.start_date"
               (ngModelChange) = "event.start_date = $event"
+              (onSave)="editStart($event)"
               #start_date="ngModel"></inline-editor></p>
       <p> <span>End Date:</span> <inline-editor
               type="date"
               name="end_date"
-              [ngModel]="event.end_date | date:'mediumDate'"
+              [ngModel]="event.end_date"
               (ngModelChange) = "event.end_date = $event"
-              #end_date="ngModel"></inline-editor> </p>
+              (onSave)="editEnd($event)"
+              #end_date="ngModel"></inline-editor></p>
       </form>
       </div>
     </div>
@@ -42,6 +46,7 @@
       <ul>
         <li *ngFor="let person of event._Members">{{person.name}}</li>
       </ul>
+
 
       <span *ngIf="event._Invitees">Invited:</span>
       <ul>

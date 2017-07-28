@@ -68,26 +68,71 @@ module.exports = {
             })
         }
     },
+
     eventDetails: (req,res) =>{
         Create.findOne({_id: req.params.eventID}).populate('Owners').populate('_Members').populate('_Invitees').exec((err, details)=>{
             if(err){
                 console.log(err);
                 return res.status(400).send(err);
             } else {
+                console.log(details)
                 req.session.event_id = details._id;
                 return res.json(details);
             }
         })
     },
 
-    editEvent: (req, res) => {
+    editTitle: (req, res) => {
         console.log("IN EDIT");
         Create.findOneAndUpdate({_id: req.session.event_id}, req.body, (err, event) => {
             if(err){
                 return res.status(400).send(err);
             } else {
-                event = req.body;
+                event.title = req.body.title;
             }
         })
+    },
+
+    editCategory: (req, res) => {
+        Create.findOneAndUpdate({_id: req.session.event_id}, req.body, (err, event) => {
+            if(err){
+                return res.status(400).send(err);
+            } else {
+                event.category = req.body.category;
+            }
+        })
+    },
+
+    editDescription: (req,res) => {
+        Create.findOneAndUpdate({_id: req.session.event_id}, req.body, (err, event) => {
+            if(err){
+                return res.status(400).send(err);
+            } else {
+                event.description = req.body.description;
+            }
+        })    
+    },
+
+    editStart: (req,res) => {
+        Create.findOneAndUpdate({_id: req.session.event_id}, req.body, (err, event) => {
+            if(err){
+                return res.status(400).send(err);
+            } else {
+                start_date: new Date(req.body.start_date)
+                event.description = start_date;
+            }
+        })    
+    },
+
+    editEnd: (req,res) => {
+        Create.findOneAndUpdate({_id: req.session.event_id}, req.body, (err, event) => {
+            if(err){
+                return res.status(400).send(err);
+            } else {
+                end_date: new Date(req.body.end_date)
+                event.description = end_date;
+            }
+        })    
     }
+
 }

@@ -29,7 +29,15 @@ module.exports = (app) => {
 
   app.get('/api/details/:eventID', creates.eventDetails);
 
-  app.post('/api/edit', creates.editEvent);
+  app.post('/api/edit/title/:eventID', creates.editTitle);
+
+  app.post('/api/edit/category/:eventID', creates.editCategory);
+
+  app.post('/api/edit/description/:eventID', creates.editDescription);
+
+  app.post('/api/edit/start/:eventID', creates.editStart);
+
+  app.post('/api/edit/end/:eventID', creates.editEnd);
 
   app.post('/api/acceptInvite', users.acceptInvite);
 
