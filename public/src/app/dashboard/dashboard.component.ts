@@ -46,4 +46,8 @@ export class DashboardComponent implements OnInit {
     this._userService.serviceUserReject(pending_index).then( data => {this.checkSession()}).catch();
   }
 
+  logout() {
+    this._userService.serviceLogout().then().catch();
+  }
+
 }

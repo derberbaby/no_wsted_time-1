@@ -1,33 +1,36 @@
-{{ event | json}}
-
-<form *ngIf="event" (onSave)="saveEditable($event)">
+<div *ngIf="event">
+<form >
 <p> Title: <inline-editor
         type="text"
         name="title"
         [(ngModel)]="event.title"
-        
+        (onSave)="editTitle($event)"
         #title="ngModel"></inline-editor></p>
 <p> Category: <inline-editor
         type="text"
         name="category"
         [(ngModel)]="event.category"
+        (onSave)="editCategory($event)"
         #category="ngModel"></inline-editor></p>
 <p> Description: <inline-editor
         type="textarea"
         name="description"
         [(ngModel)]="event.description"
+        (onSave)="editDescription($event)"
         #description="ngModel"></inline-editor> </p>
 <p> Start Date: <inline-editor
         type="date"
         name="start_date"
-        [ngModel]="event.start_date | date:'mediumDate'"
+        [ngModel]="event.start_date"
         (ngModelChange) = "event.start_date = $event"
+        (onSave)="editStart($event)"
         #start_date="ngModel"></inline-editor></p>
 <p> End Date: <inline-editor
         type="date"
         name="end_date"
-        [ngModel]="event.end_date | date:'mediumDate'"
+        [ngModel]="event.end_date"
         (ngModelChange) = "event.end_date = $event"
+        (onSave)="editEnd($event)"
         #end_date="ngModel"></inline-editor> </p>
 </form>  
 
@@ -46,3 +49,5 @@
 	</label>
 	<input type="submit" value="Invite">
 </form>
+<a [routerLink]="['/dashboard']">Back</a>
+</div>

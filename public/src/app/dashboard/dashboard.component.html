@@ -1,4 +1,5 @@
 <h2>Welcome, {{ first_name }}</h2>
+<a [routerLink]="['/main','login']" (click)="logout()">Logout</a>
 <h3>Date: {{ newDate | date: 'mediumDate'}}</h3>
 <div *ngIf="pending_invites">
 	<div class="invitation_info" *ngFor="let invitation of pending_invites; index as idx">

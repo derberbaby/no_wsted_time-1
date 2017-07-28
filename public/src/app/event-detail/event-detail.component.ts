@@ -46,10 +46,50 @@ export class EventDetailComponent implements OnInit {
     .then().catch();
   }
 
-  saveEditable(value) {
-    this._createService.serviceEditEvent(this.event)
+  editTitle(value) {
+    this._createService.serviceEditTitle(this.id, value)
     .then( data => {
       this.event = data;
-    }).catch();
+    }).catch( err => {
+      console.log(err)
+    });
+  }
+
+  editCategory(value) {
+    this._createService.serviceEditCategory(this.id, value)
+    .then( data => {
+      this.event = data;
+    }).catch( err => {
+      console.log(err)
+    });
+  }
+
+  editDescription(value) {
+    this._createService.serviceEditDescription(this.id, value)
+    .then( data => {
+      this.event = data;
+    }).catch( err => {
+      console.log(err)
+    })
+  }
+
+  editStart(value){
+    console.log(value)
+    this._createService.serviceEditStart(this.id, value)
+     .then( data => {
+      this.event = data;
+    }).catch( err => {
+      console.log(err)
+    })  
+  }
+
+  editEnd(value){
+  console.log(value)
+    this._createService.serviceEditEnd(this.id, value)
+     .then( data => {
+      this.event = data;
+    }).catch( err => {
+      console.log(err)
+    })  
   }
 }
