@@ -31,11 +31,12 @@ export class UserService {
   		.toPromise()
   }
 
-  serviceCreateTask(user){
-      return this._http.post('/api/addTask', user)
+  serviceAddTasks(tasks){
+      return this._http.post('/api/tasks/addTasks', tasks)
       .map( response => response.json())
       .toPromise()
   }
+  
   serviceGetTasks(){
       return this._http.get('/api/tasks')
       .map( response => response.json())

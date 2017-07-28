@@ -76,6 +76,42 @@ module.exports = {
     }
   },
 
+  addTasks: (req, res) => {
+    User.findOne({_id: req.session.user_id}, (err,user) => {
+      if(err){
+        return res.status(400).send(err);
+      } else {
+        console.log(req.body);
+        user.tasks = req.body;
+        user.save( (err, savedTasks) => {
+          if(err){
+            let err = [];
+            for(let i in err.errors){
+              errors.push(err.errors[i].message)
+            }
+            return res.status(400).send(errors)
+          } else {
+            return res.json(savedTasks)
+          }
+        })
+      }
+    })
+  },
+  
+  getTasks: (req,res) => {
+    User.findOne({_id: req.session.user_id}, (err,user) => {
+      if(err){
+        let errors = [];
+        for( let i in err.errors){
+          errors.push(err.errors[i].message);
+        }
+        return res.status(400).send(errors);
+      } else {
+        return res.json(user.tasks);
+      }
+    })
+  },
+
   logout: (req, res) => {
     req.session.destroy();
     return res.json(true);
