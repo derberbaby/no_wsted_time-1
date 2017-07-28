@@ -1,37 +1,61 @@
-<main>
-<section>
 
-<h1>Welcome, {{ first_name }}</h1>
+<div class="container-fluid">
+  <h1>Welcome, {{ first_name }}</h1>
+  <div class="row">
 
-<app-calendar (changedDate)="changedDate($event)"></app-calendar>
+  </div>
+  <div class="row">
+    <div class="col-md-6 red">
+      <app-calendar (changedDate)="changedDate($event)"></app-calendar>
+    </div>
 
-<article>
+    <div class="col-md-6 blue">
+      <div class="row">
+        <div class="col-md-6">
+          <div id="todo">
+            <h2>To Do List</h2>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div id="event">
+            <h2>Events<button [routerLink]="['/create']">+</button></h2>
+          </div>
+        </div>
 
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <app-journal [newDate]="newDate"></app-journal>
+        </div>
+      </div>
+    </div>
+    <!-- <div class="col-md-12">
+    </div>
+    <div class="col-md-6">
+      <div id="todo">
+        <h2>To Do List</h2>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div id="event">
+          <h2>Events<button [routerLink]="['/create']">+</button></h2>
+      </div>
+    </div>
+      <div class="row">
+        <div class="col-md-12">
+          <p>{{ newDate | json }}</p>
 
-<p>Date: {{ newDate | date: 'mediumDate'}}</p>
+        <app-journal [newDate]="newDate"></app-journal>
+        </div>
+      </div> -->
+  </div>
 
-
-<div id="middle">
-<div id="todo">
-
-<h2>To Do List</h2>
+  <!-- <div class="row blue">
+    <div class="row col-md-6">
+      <h1 class="row col-md-6 red">Hello</h1>
+      <h1 class="col-md-6 green">World</h1>
+    </div>
+    <h2 class="col-md-3 col-md-offset-3 red">World</h2>
+  </div> -->
 
 </div>
-
-<div id="event">
-
-<h2>Events
-
-<button [routerLink]="['/create']">+</button>
-
-</h2>
-</div>
-</div>
-
-
-<p>{{ newDate | json }}</p>
-
-<app-journal [newDate]="newDate"></app-journal>
-</article>
-</section>
-</main>
