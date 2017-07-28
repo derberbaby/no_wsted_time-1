@@ -27,6 +27,8 @@ import { EventDetailComponent } from './event-detail/event-detail.component';
 import { WeatherComponent } from './weather/weather.component';
 import { TaskComponent } from './task/task.component';
 import { WeatherService } from './weather.service';
+import { MessagecreateComponent } from './event-detail/messagecreate/messagecreate.component';
+import { MessagelistComponent } from './event-detail/messagelist/messagelist.component';
 
 
 @NgModule({
@@ -43,7 +45,9 @@ import { WeatherService } from './weather.service';
     EventsComponent,
     EventDetailComponent,
     WeatherComponent,
-    TaskComponent
+    TaskComponent,
+    MessagecreateComponent,
+    MessagelistComponent
   ],
   imports: [
     CommonModule,

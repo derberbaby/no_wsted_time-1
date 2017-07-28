@@ -20,6 +20,8 @@
       <p> <span>Description:</span> <inline-editor
               type="textarea"
               name="description"
+              rows="7"
+              cols="19"
               [(ngModel)]="event.description"
               (onSave)="editDescription($event)"
               #description="ngModel"></inline-editor></p>
@@ -67,6 +69,8 @@
     </div>
     <div class="col-md-6">
       <!-- message board -->
+      <app-messagelist [childMessages]="messages"></app-messagelist>
+      <app-messagecreate (newMessageEvent)="createMessage($event)"></app-messagecreate>
     </div>
   </div>
 </div>

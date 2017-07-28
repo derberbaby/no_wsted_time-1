@@ -58,4 +58,14 @@ export class CreateService {
     .toPromise()
   }
 
+  serviceCreateMessage(message, eventID){
+    return this._http.post('/api/messages/add/' + eventID, message)
+    .map( (response) => response.json())
+    .toPromise()
+  }
+
+  serviceGetAllMessages(){
+    return this._http.get('/api/get_all_messages').map( (response) => response.json()).toPromise();
+  }
+
 }

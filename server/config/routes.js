@@ -20,7 +20,7 @@ module.exports = (app) => {
   app.post('/api/edit_journal_entry', journals.editEntry);
 
   app.get('/api/tasks', users.getTasks);
-  
+
   app.post('/api/tasks/addTasks', users.addTasks);
 
   app.post('/api/invite/:event_id', users.inviteFriend);
@@ -38,6 +38,10 @@ module.exports = (app) => {
   app.post('/api/edit/start/:eventID', creates.editStart);
 
   app.post('/api/edit/end/:eventID', creates.editEnd);
+
+  app.post('/api/messages/add/:eventID', creates.addMessage);
+  
+  app.get('/api/get_all_messages', creates.getAll);
 
   app.post('/api/acceptInvite', users.acceptInvite);
 
