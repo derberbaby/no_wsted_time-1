@@ -1,8 +1,5 @@
-
-
 <div id="create">
-<h2>New Event</h2>
-<button [routerLink]="['/dashboard']">Cancel</button>
+<h4>New Event</h4>
 	<form (submit)="create()" #createForm="ngForm">
 		<label for="category">Category: <select
 		name="category"
@@ -49,6 +46,6 @@
 		#description="ngModel">
     </textarea>
 		</label>
-    <input type="submit" [disabled]="!createForm.form.valid" value="Create">
+    <input type="submit" [disabled]="!createForm.form.valid" value="Create"> <button [routerLink]="['/dashboard']">Cancel</button>
 	</form>
 </div>

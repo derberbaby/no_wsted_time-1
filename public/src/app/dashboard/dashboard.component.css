@@ -1,25 +1,3 @@
-/*main {
-	display: block;
-
-
-}
-
-section {
-	display: inline-block;
-	vertical-align: top;
-	width: 100%;
-
-	background: white;
-
-}
-
-
-article {
-	display: inline-block;
-	vertical-align: top;
-	background: lightgrey;
-	width: 600px;
-}*/
 
 .blue {
 	background-color: blue;
@@ -39,28 +17,21 @@ p {
 
 }
 
-/*
-#middle{
-	margin: 0 0 0 20px;
-}*/
-/*.center-block{
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-}*/
-
 #todo {
-/*width: 375px;*/
 height: 300px;
-background: yellow;
-/*display: inline-block;
-vertical-align: top;*/
+border: 1px solid #E1E1E1;
+border-radius: 5px;
 }
 
 #event {
-/*width: 375px;*/
 height: 300px;
-background: orange;
-/*display: inline-block;*/
-/*vertical-align: top;*/
+border: 1px solid #E1E1E1;
+border-radius: 5px;
+}
+
+#journal {
+height: 300px;
+border: 1px solid #E1E1E1;
+border-radius: 5px;
+margin-top: 10px;
 }
