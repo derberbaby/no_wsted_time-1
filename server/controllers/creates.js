@@ -52,5 +52,42 @@ module.exports = {
             }
         })
     }
-}
+},
+
+    eventList: (req,res)=>{
+        console.log("IN CONTROLLER CREATE");
+        if(req.session.user_id){
+            let date = req.body.date.slice(0,10);
+            Create.find({ '$where': 'this.start_date.toJSON().slice(0, 10) == "' + date  + '"', _Members: req.session.user_id}, (err, events)=>{
+                if (err){
+                    console.log(err);
+                    return res.status(400).send(err);
+                } else {
+                    return res.json(events);
+                }
+            })
+        }
+    },
+    eventDetails: (req,res) =>{
+        Create.findOne({_id: req.params.eventID}).populate('Owners').populate('_Members').exec((err, details)=>{
+            if(err){
+                console.log(err);
+                return res.status(400).send(err);
+            } else {
+                req.session.event_id = details._id;
+                return res.json(details);
+            }
+        })
+    },
+
+    editEvent: (req, res) => {
+        console.log("IN EDIT");
+        Create.findOneAndUpdate({_id: req.session.event_id}, req.body, (err, event) => {
+            if(err){
+                return res.status(400).send(err);
+            } else {
+                event = req.body;
+            }
+        })
+    }
 }

@@ -14,7 +14,7 @@ export class CreateService {
   }
 
   serviceGetEvents(date){
-  	console.log("IN CREATE SERVICE");
+  	console.log("IN CREATE SERVICE", date);
   	return this._http.post('/api/getEvents', date)
   		.map ( (response) => response.json())
       .toPromise()
@@ -24,5 +24,12 @@ export class CreateService {
   	return this._http.get('/api/details/'+ eventID.id)
   		.map ( (response) => response.json())
       .toPromise()
+  }
+
+  serviceEditEvent(event) {
+    console.log("SERVICE", event);
+    return this._http.post('/api/edit/', event)
+    .map( (response) => response.json())
+    .toPromise()
   }
 }
