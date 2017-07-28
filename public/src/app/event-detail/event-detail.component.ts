@@ -18,7 +18,7 @@ export class EventDetailComponent implements OnInit {
 
   constructor(
   	private _userService: UserService,
-  	private _createService: CreateService, 
+  	private _createService: CreateService,
   	private _router: Router,
   	private _route: ActivatedRoute ) { }
 
@@ -43,7 +43,9 @@ export class EventDetailComponent implements OnInit {
   invite() {
     console.log("component", this.id);
     this._userService.serviceInviteFriend(this.id.id, this.friend)
-    .then().catch();
+    .then( data => {
+      this.event = data
+    }).catch();
   }
 
   saveEditable(value) {
@@ -52,4 +54,5 @@ export class EventDetailComponent implements OnInit {
       this.event = data;
     }).catch();
   }
+
 }

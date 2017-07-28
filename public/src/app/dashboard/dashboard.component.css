@@ -1,20 +1,19 @@
-
-.blue {
-	background-color: blue;
+a {
+	text-align: right;
+	display: block;
+	margin: 10px;
 }
 
-.red {
-	background-color: red;
+#header {
+	background: grey;
+	color: white;
+	height: 65px;
+	margin-bottom: 10px;
 }
 
-.green {
-
-	background-color: green;
-}
 p {
 	font-size: 30px;
 	text-align: center;
-
 }
 
 #todo {
@@ -35,3 +34,20 @@ border: 1px solid #E1E1E1;
 border-radius: 5px;
 margin-top: 10px;
 }
+
+#logout {
+	text-align: right;
+}
+
+/*.blue {
+	background-color: blue;
+}
+
+.red {
+	background-color: red;
+}
+
+.green {
+
+	background-color: green;
+}*/

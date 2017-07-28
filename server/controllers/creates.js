@@ -69,7 +69,7 @@ module.exports = {
         }
     },
     eventDetails: (req,res) =>{
-        Create.findOne({_id: req.params.eventID}).populate('Owners').populate('_Members').exec((err, details)=>{
+        Create.findOne({_id: req.params.eventID}).populate('Owners').populate('_Members').populate('_Invitees').exec((err, details)=>{
             if(err){
                 console.log(err);
                 return res.status(400).send(err);
