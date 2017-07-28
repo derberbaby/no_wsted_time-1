@@ -22,4 +22,8 @@ module.exports = (app) => {
   app.get('/api/tasks', users.getTasks);
   
   app.post('/api/tasks/addTasks', users.addTasks);
+
+  app.post('/api/getEvents', creates.eventList);
+
+  app.get('/api/details/:eventID', creates.eventDetails);
 }
