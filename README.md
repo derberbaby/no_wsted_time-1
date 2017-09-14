@@ -4,7 +4,7 @@
 
 ### Technologies: Angular 4, MongoDB, Express.js, Node.js, Mongoose, Socket.IO, Javascript, CSS3, and Bootstrap ###
 
-*No WSTED Time* is a single-view, all-in-one planning app meant to congregate functionality distributed across typical modern event planning applications. Developed using **MEAN** stack, the application an interactive calendar, which displays information on a second, informational component, relative to the date selected.
+*No WSTED Time* is a single-view, all-in-one planning app meant to congregate functionality distributed across typical modern event planning applications. Developed using **MEAN** stack, the application boasts an interactive calendar, which displays information on a second, informational component, relative to the date selected.
 
 **Angular 4** provides fluid front-end UX/UI, to swap components without reloading the page. **MongoDB** was used to design a robust, yet minimalist database that could support users' capability to create events for a specified date, and invite other users to that event. Users also have the ability to chat with one another in real time due to implementation of **Sockets**. Other functionality includes the ability to write a daily to-do list and a daily journal.
 
